@@ -15,8 +15,8 @@ def test_bracken():
 
     with TemporaryDirectory() as tmpdir:
         workdir = Path(tmpdir) / "workdir"
-        data_path = PurePosixPath("/pbtech_mounts/homes064/lam4003/bin/camp_short-read-taxonomy/.tests/unit/bracken/data")
-        expected_path = PurePosixPath("/pbtech_mounts/homes064/lam4003/bin/camp_short-read-taxonomy/.tests/unit/bracken/expected")
+        data_path = PurePosixPath("./.tests/unit/bracken/data")
+        expected_path = PurePosixPath("./.tests/unit/bracken/expected")
 
         # Copy data to the temporary workdir.
         shutil.copytree(data_path, workdir)
@@ -34,9 +34,8 @@ def test_bracken():
             "-j1",
             "--keep-target-files",
             "--configfile",
-            /pbtech_mounts/homes064/lam4003/bin/camp_short-read-taxonomy/configs/parameters.yaml
-            /pbtech_mounts/homes064/lam4003/bin/camp_short-read-taxonomy/configs/resources.yaml
-    
+            "./configs/parameters.yaml",
+            "./configs/resources.yaml",    
             "--use-conda",
             "--directory",
             workdir,
